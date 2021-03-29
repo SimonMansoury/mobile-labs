@@ -1,5 +1,5 @@
-import React, {useCallback, useState} from 'react';
-import {Alert, Button, StyleSheet, Text, View} from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { Alert, Button, StyleSheet, Text, View } from 'react-native';
 import SelectMultiple from 'react-native-select-multiple'
 
 const fruits = ['Apples', 'Oranges', 'Pears', 'Milk', 'Salo', 'Hleb', 'Kefir']
@@ -13,25 +13,27 @@ export default function App() {
     }, [setSelectedItems]);
 
     const toggleOutput = useCallback(() => {
-        setIsVisible(!isVisible);
 
         if (selectedItems.length == 0) {
             Alert.alert('NO PRODUCTS IN CART');
             return;
         } else {
+            setIsVisible(!isVisible);
         }
+        setIsVisible(!isVisible);
+
         console.log(selectedItems)
 
     }, [setIsVisible, isVisible]);
 
     return (
-        <View style={{width: '100%', marginTop: 60, marginHorizontal: 10}}>
+        <View style={{ width: '100%', marginTop: 60, marginHorizontal: 10 }}>
             {isVisible ? (
                 <View>
                     <Text>{selectedItems.map((item) => {
                         return item.label;
                     }).join(', ')}</Text>
-                    <Button title='BACK' onPress={toggleOutput}/>
+                    <Button title='BACK' onPress={toggleOutput} />
                 </View>
             ) : (
                 <View>
@@ -40,9 +42,9 @@ export default function App() {
                         <SelectMultiple
                             items={fruits}
                             selectedItems={selectedItems}
-                            onSelectionsChange={onCheckBoxChange}/>
+                            onSelectionsChange={onCheckBoxChange} />
                     </View>
-                    <Button title='OK' onPress={toggleOutput}/>
+                    <Button title='OK' onPress={toggleOutput} />
                 </View>
             )}
         </View>
