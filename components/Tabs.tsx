@@ -8,6 +8,7 @@ import {Alert, Button, ScrollView, Text, TextInput, TouchableHighlight, View} fr
 import styles from "../Styles";
 import SelectMultiple from 'react-native-select-multiple'
 import PizzaTranslator from "./Dog";
+import VideoPlayer from "./Tabs/VideoPlayer";
 
 const Tab = createBottomTabNavigator();
 
@@ -176,6 +177,15 @@ function Lab3Tab() {
     );
 }
 
+function Lab4Tab() {
+
+    return (
+        <View style={styles.tabView}>
+            <VideoPlayer />
+        </View>
+    );
+}
+
 
 export default function Tabs() {
     return (
@@ -184,6 +194,7 @@ export default function Tabs() {
                 <Tab.Screen name="1 LAB" component={Lab1Tab}/>
                 <Tab.Screen name="2 LAB" component={Lab2Tab}/>
                 <Tab.Screen name="3 LAB" component={Lab3Tab}/>
+                <Tab.Screen name="4 LAB" component={Lab4Tab}/>
             </Tab.Navigator>
         </NavigationContainer>
     );
