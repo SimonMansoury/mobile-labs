@@ -52,6 +52,12 @@ const styles = StyleSheet.create({
         padding: 10,
         marginHorizontal: 10,
         marginVertical: 10
+    },
+    container: {
+        padding: 10
+    },
+    video: {
+
     }
 });
 

@@ -4,11 +4,10 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 //import Lab2Tab from "./Tabs/Lab2tab";
 import {useCallback, useState} from "react";
-import {Alert, Button, ScrollView, Text, TextInput, TouchableHighlight, View} from "react-native";
+import {Alert, Text, TextInput, TouchableHighlight, View} from "react-native";
 import styles from "../Styles";
 import SelectMultiple from 'react-native-select-multiple'
-import PizzaTranslator from "./Dog";
-import VideoPlayer from "./Tabs/VideoPlayer";
+import VideoAndAudioPlayer from "./Labs/4 Lab/VideoAndAudioPlayer";
 
 const Tab = createBottomTabNavigator();
 
@@ -107,7 +106,6 @@ function Lab2Tab() {
                     </View>
                 ) : (
                     <View>
-
                         <View>
                             <SelectMultiple
                                 items={fruits}
@@ -171,17 +169,7 @@ function Lab3Tab() {
                         Output file storage
                     </Text>
                 </TouchableHighlight>
-                <PizzaTranslator/>
             </View>
-        </View>
-    );
-}
-
-function Lab4Tab() {
-
-    return (
-        <View style={styles.tabView}>
-            <VideoPlayer />
         </View>
     );
 }
@@ -194,7 +182,7 @@ export default function Tabs() {
                 <Tab.Screen name="1 LAB" component={Lab1Tab}/>
                 <Tab.Screen name="2 LAB" component={Lab2Tab}/>
                 <Tab.Screen name="3 LAB" component={Lab3Tab}/>
-                <Tab.Screen name="4 LAB" component={Lab4Tab}/>
+                <Tab.Screen name="4 LAB" component={VideoAndAudioPlayer}/>
             </Tab.Navigator>
         </NavigationContainer>
     );
