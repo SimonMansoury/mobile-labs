@@ -20,7 +20,6 @@ const Lab1Tab = () => {
             <Text style={styles.baseText}>
                 Output under screen
             </Text>
-
             <View
                 style={{
                     borderBottomColor: 'black',
@@ -28,7 +27,6 @@ const Lab1Tab = () => {
                 }}
             />
             <View>
-
                 <View>
                     <SelectMultiple
                         items={fruits}

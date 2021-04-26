@@ -1,4 +1,4 @@
-import {Text, TextInput, TouchableHighlight, View} from "react-native";
+import {Button, Text, TextInput, View} from "react-native";
 import styles from "../../../Styles";
 import React from "react";
 
@@ -24,28 +24,28 @@ function Lab3Tab() {
                     style={styles.textInput}
                     placeholder={"Dummy text here"}>
                 </TextInput>
-                <TouchableHighlight
-                    style={styles.submit}
-                    underlayColor='#fff'>
-                    <Text style={styles.submitText}>
-                        Store to file
-                    </Text>
-                </TouchableHighlight>
+                <View style={styles.button}>
+                    <Button
+                        title={'STORE TO FILE'}
+                        onPress={() => {
+                        }}/>
+                </View>
+
                 <View
                     style={{
                         borderBottomColor: 'black',
                         borderBottomWidth: 1,
                     }}
                 />
-                <TouchableHighlight
-                    style={styles.submit}
-                    underlayColor='#fff'>
-                    <Text style={styles.submitText}>
-                        Output file storage
-                    </Text>
-                </TouchableHighlight>
+                <View style={styles.button}>
+                    <Button
+                        title={'OUTPUT FILE STORAGE'}
+                        onPress={() => {
+                        }}/>
+                </View>
             </View>
         </View>
     );
 }
+
 export default Lab3Tab;

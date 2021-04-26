@@ -1,7 +1,9 @@
 import React, {useCallback, useState} from "react";
-import {Alert, Text, TouchableHighlight, View} from "react-native";
+import {Alert, Text, View} from "react-native";
 import styles from "../../../Styles";
 import SelectMultiple from 'react-native-select-multiple'
+import Dash from "../Dash";
+import CustomButton from "../../CustomComponents/CustomButton";
 
 function Lab2Tab() {
 
@@ -12,7 +14,10 @@ function Lab2Tab() {
     const onCheckBoxChange = useCallback((items) => {
         setSelectedItems(items)
     }, [setSelectedItems]);
-
+    let inputProps = {
+        color: "blue",
+        title: "Title"
+    };
     const toggleOutput = useCallback(() => {
         if (selectedItems.length == 0) {
             Alert.alert('NO PRODUCTS IN CART');
@@ -33,25 +38,15 @@ function Lab2Tab() {
                 <Text style={styles.baseText}>
                     Output in the different tab
                 </Text>
-                <View
-                    style={{
-                        borderBottomColor: 'black',
-                        borderBottomWidth: 1,
-                    }}
-                />
+
+                <Dash/>
                 {isVisible ? (
                     <View>
                         <Text style={styles.resultText}>{selectedItems.map((item: any) => {
                             return item.label;
                         }).join(', ')}</Text>
-                        <TouchableHighlight
-                            style={styles.submit}
-                            underlayColor='#fff'
-                            onPress={toggleOutput}>
-                            <Text style={styles.submitText}>
-                                Return
-                            </Text>
-                        </TouchableHighlight>
+                        <CustomButton onPress={toggleOutput} title={'return'}/>
+
                     </View>
                 ) : (
                     <View>
@@ -61,14 +56,7 @@ function Lab2Tab() {
                                 selectedItems={selectedItems}
                                 onSelectionsChange={onCheckBoxChange}/>
                         </View>
-                        <TouchableHighlight
-                            style={styles.submit}
-                            underlayColor='#fff'
-                            onPress={toggleOutput}>
-                            <Text style={styles.submitText}>
-                                Output result
-                            </Text>
-                        </TouchableHighlight>
+                        <CustomButton onPress={toggleOutput} title={'Output result'}/>
                     </View>
                 )}
             </View>

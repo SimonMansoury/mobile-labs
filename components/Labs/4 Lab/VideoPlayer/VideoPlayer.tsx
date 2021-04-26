@@ -1,7 +1,8 @@
 import React from "react";
-import {Button, Text, View} from "react-native";
-import styles from "../../../Styles";
+import {Text, View} from "react-native";
+import styles from "../../../../Styles";
 import {Video} from "expo-av";
+import CustomButton from "../../../CustomComponents/CustomButton";
 
 function VideoPlayer() {
     const video = React.useRef(null);
@@ -21,14 +22,8 @@ function VideoPlayer() {
                 isLooping
                 onPlaybackStatusUpdate={status => setStatus(() => status)}
             />
-            <View style={styles.button}>
-                <Button
-                    title={status.isPlaying ? 'PAUSE VIDEO' : 'Play video'}
-                    onPress={() =>
-                        status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
-                    }
-                />
-            </View>
+            <CustomButton title={status.isPlaying ? 'PAUSE VIDEO' : 'PLAY VIDEO'} onPress={() =>
+                status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()}/>
         </View>
     );
 }

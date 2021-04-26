@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+
 const itemSize = 60;
 
 const styles = StyleSheet.create({
@@ -60,8 +61,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 7,
         padding: 10,
-        marginHorizontal: 10,
-        marginVertical: 10
     },
     container: {
         padding: 10

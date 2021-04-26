@@ -12240,11 +12240,6 @@
     "css-select" "^2.1.0"
     "css-tree" "^1.0.0-alpha.39"
 
-"react-native-text-ticker@^1.12.0":
-  "integrity" "sha512-L0rvbNsOuGQfxxwbicHgqnk6IhME5igoipTy7zwy4WDYzeErQNssDCqr4RwW3xUcS7ejyYb5Y9A/UGwHf23Edg=="
-  "resolved" "https://registry.npmjs.org/react-native-text-ticker/-/react-native-text-ticker-1.12.0.tgz"
-  "version" "1.12.0"
-
 "react-native-web@~0.13.12":
   "integrity" "sha512-WR/0ECAmwLQ2+2cL2Ur+0/swXFAtcSM0URoADJmG6D4MnY+wGc91JO8LoOTlgY0USBOY+qG/beRrjFa+RAuOiA=="
   "resolved" "https://registry.npmjs.org/react-native-web/-/react-native-web-0.13.18.tgz"
