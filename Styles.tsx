@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 15,
         padding: 10,
+        margin: 10
     },
     picker: {
         width: "100%",
