@@ -6,9 +6,9 @@ import styles from "../../../../../Styles";
 
 function RemoteVideoPlayer() {
     const video = React.useRef(null);
-    const [urlInputted, setUrl] = React.useState(false);
     const [status, setStatus] = React.useState({});
     const [videoUrl, setVideoUrl] = React.useState('');
+    const [urlInputted, setUrl] = React.useState(false);
 
     async function openPlayerAndStartVideo() {
         try {

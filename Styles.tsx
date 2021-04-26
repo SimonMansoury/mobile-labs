@@ -13,16 +13,6 @@ const styles = StyleSheet.create({
         alignContent: "center",
         padding: 15
     },
-    submit: {
-        marginHorizontal: 60,
-        marginVertical: 10,
-        paddingTop: 10,
-        paddingBottom: 10,
-        backgroundColor: '#0685ee',
-        borderRadius: 10,
-        borderWidth: 1,
-        borderColor: '#fff'
-    },
     submitText: {
         color: '#fff',
         fontSize: 20,
@@ -32,7 +22,8 @@ const styles = StyleSheet.create({
         borderWidth: 1.5,
         borderRadius: 15,
         borderColor: '#aeadbd',
-        marginVertical: 10
+        marginVertical: 10,
+        color: 'white'
     },
     resultText: {
         fontSize: 24,
