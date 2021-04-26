@@ -1,23 +1,27 @@
 import * as React from 'react';
-import {Text, View, StyleSheet, Button} from 'react-native';
+import {Text, View, Button} from 'react-native';
 import {Audio} from 'expo-av';
+import * as DocumentPicker from 'expo-document-picker';
 import styles from "../../../Styles";
-import {useCallback, useState} from "react";
+import {AudioSound} from "./Models/Sound";
 
 export default function AudioPlayer() {
     const [sound, setSound] = React.useState();
     const [isPlayed, setStatus] = React.useState(false);
+    const [currentAudio, setCurrentAudio] = React.useState<AudioSound | null>(null);
 
     async function playSound() {
-        console.log(isPlayed)
-        console.log('Loading Sound');
-        const {sound} = await Audio.Sound.createAsync(
-            require('../../../assets/Hello.mp3')
-        );
+        if (currentAudio == null) return;
+
+        const {sound} = await Audio.Sound.createAsync({uri: currentAudio.path});
         setSound(sound);
-        sound.playAsync();
+        if (isPlayed) {
+            await sound.stopAsync();
+            setStatus(!isPlayed);
+            return;
+        }
         setStatus(!isPlayed);
-        console.log(isPlayed)
+        await sound.playAsync();
     }
 
     React.useEffect(() => {
@@ -29,10 +33,41 @@ export default function AudioPlayer() {
             : undefined;
     }, [sound]);
 
+    const pickAFile = React.useCallback(async () => {
+        try {
+            const file = await DocumentPicker.getDocumentAsync({
+                type: 'audio/*',
+                copyToCacheDirectory: true,
+            });
+
+            if (file.type !== "cancel") {
+                console.log(file);
+                setCurrentAudio(new AudioSound(file.name, file.uri));
+
+                await playSound();
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }, []);
+
     return (
         <View style={styles.container}>
-            <Button title='play'
-                    onPress={playSound}/>
+            <Text style={styles.subTitleText}>AUDIO CONTAINER</Text>
+            <View>
+                <Text style={styles.baseText}>Select sound to play</Text>
+                <Text>Now is playing: {currentAudio?.title}</Text>
+            </View>
+            <View>
+                <View style={styles.button}>
+                    <Button title={isPlayed ? 'STOP AUDIO' : 'PLAY AUDIO'}
+                            onPress={playSound}/>
+                </View>
+                <View style={styles.button}>
+                    <Button title="PICK AN AUDIO"
+                            onPress={pickAFile}/>
+                </View>
+            </View>
         </View>
     );
 }

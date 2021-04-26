@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, View} from "react-native";
+import {Button, Text, View} from "react-native";
 import styles from "../../../Styles";
 import {Video} from "expo-av";
 
@@ -9,6 +9,7 @@ function VideoPlayer() {
 
     return (
         <View style={styles.container}>
+            <Text style={styles.subTitleText}>VIDEO CONTAINER</Text>
             <Video
                 style={styles.video}
                 ref={video}
@@ -22,7 +23,7 @@ function VideoPlayer() {
             />
             <View style={styles.button}>
                 <Button
-                    title={status.isPlaying ? 'Pause' : 'Play'}
+                    title={status.isPlaying ? 'PAUSE VIDEO' : 'Play video'}
                     onPress={() =>
                         status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
                     }

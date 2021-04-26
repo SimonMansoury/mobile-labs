@@ -1,11 +1,12 @@
 import {StyleSheet} from "react-native";
+const itemSize = 60;
 
 const styles = StyleSheet.create({
     tabView: {
         width: '100%',
-        marginVertical: 100,
         backgroundColor: '#fffdfd',
-        padding: 10
+        padding: 10,
+        marginTop: 20
     },
     resultContainer: {
         alignContent: "center",
@@ -27,7 +28,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     button: {
-        borderWidth: 5
+        borderWidth: 1.5,
+        borderRadius: 15,
+        borderColor: '#aeadbd',
+        marginVertical: 10
     },
     resultText: {
         fontSize: 24,
@@ -46,6 +50,12 @@ const styles = StyleSheet.create({
         textAlign: "center",
         marginVertical: 20
     },
+    subTitleText: {
+        fontSize: 18,
+        fontWeight: "bold",
+        textAlign: "center",
+        marginVertical: 15
+    },
     textInput: {
         borderWidth: 1,
         borderRadius: 7,
@@ -57,7 +67,17 @@ const styles = StyleSheet.create({
         padding: 10
     },
     video: {
-
+        height: 300,
+        borderWidth: 1,
+        borderRadius: 15,
+        padding: 10,
+    },
+    picker: {
+        width: "100%",
+        height: itemSize,
+    },
+    pickerItem: {
+        height: itemSize
     }
 });
 
